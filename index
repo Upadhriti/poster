@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>HIYA Research Poster</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: Arial, sans-serif; background: #f0ebe3; display:flex; justify-content:center; padding:20px; }
+.poster { width:1100px; background:#fff; box-shadow:0 4px 30px rgba(0,0,0,.2); display:flex; flex-direction:column; }
+.header { background:linear-gradient(135deg,#1a6b3a,#2d9d60,#1a6b3a); color:#fff; padding:24px 34px 18px; display:flex; align-items:center; gap:24px; }
+.logo { width:82px;height:82px;border-radius:50%;background:rgba(255,255,255,.15);border:2px solid rgba(255,255,255,.4);display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0;font-size:22px;font-weight:900;letter-spacing:2px; }
+.logo small{font-size:9px;font-weight:300;opacity:.8;margin-top:3px;}
+.htxt{flex:1;}
+.htitle{font-size:28px;font-weight:900;line-height:1.1;}
+.hsub{font-size:13px;font-weight:300;margin-top:5px;opacity:.9;}
+.hauth{font-size:12px;margin-top:6px;opacity:.75;font-style:italic;}
+.hbadges{display:flex;flex-direction:column;gap:6px;align-items:flex-end;}
+.badge{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);border-radius:20px;padding:4px 12px;font-size:10.5px;font-weight:700;white-space:nowrap;}
+.accent{height:5px;background:linear-gradient(90deg,#f4a825,#e87c3e,#c94f8a,#7b5ea7,#1a6b3a);}
+.body{display:grid;grid-template-columns:1fr 1fr 1fr;padding:16px 20px 12px;column-gap:14px;row-gap:0;}
+.col{display:flex;flex-direction:column;gap:11px;}
+.sec{background:#fafaf8;border-radius:7px;border-left:4px solid #2d9d60;padding:11px 13px 9px;box-shadow:0 1px 3px rgba(0,0,0,.05);}
+.sec.bl{border-left-color:#1e6fa8;}.sec.pu{border-left-color:#7b5ea7;}.sec.or{border-left-color:#e87c3e;}.sec.te{border-left-color:#1a9b9b;}.sec.pk{border-left-color:#c94f8a;}
+.stitle{font-size:10.5px;font-weight:900;text-transform:uppercase;letter-spacing:1.2px;color:#1a6b3a;margin-bottom:7px;display:flex;align-items:center;gap:6px;}
+.stitle::before{content:'';display:inline-block;width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0;}
+.stitle.bl{color:#1e6fa8;}.stitle.pu{color:#7b5ea7;}.stitle.or{color:#e87c3e;}.stitle.te{color:#1a9b9b;}.stitle.pk{color:#c94f8a;}
+p{font-size:10.5px;color:#333;line-height:1.6;}
+.abst{background:linear-gradient(135deg,#f0f8f2,#e8f4ef);border:1px solid #b8dfc8;border-radius:7px;padding:11px 13px;font-size:10.5px;color:#2a2a2a;line-height:1.65;font-style:italic;}
+.dg{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-top:4px;}
+.dc{border-radius:7px;padding:8px 7px;text-align:center;}
+.dc.v{background:#e8f0fc;border:1px solid #a8c0e8;}.dc.p{background:#fef0e6;border:1px solid #f0b87a;}.dc.k{background:#e8f6ee;border:1px solid #8ecba8;}
+.de{font-size:17px;}.dn{font-size:11px;font-weight:900;margin:3px 0 2px;color:#222;}.dd{font-size:9.5px;color:#555;line-height:1.4;}.dt{font-size:9.5px;color:#777;margin-top:3px;font-style:italic;}
+.diag{display:flex;flex-direction:column;align-items:center;gap:3px;padding:3px 0;}
+.db{color:#fff;border-radius:6px;padding:7px 14px;font-size:10px;font-weight:700;text-align:center;width:100%;max-width:230px;}
+.db.g{background:#1a6b3a;}.db.b{background:#1e6fa8;}.db.p{background:#7b5ea7;}.db.o{background:#e87c3e;}
+.db small{font-weight:300;font-size:9.5px;}
+.da{font-size:13px;color:#999;line-height:1;}
+.mgrid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:3px;}
+.mc{background:#fff;border:1px solid #e0e0e0;border-radius:6px;padding:7px 8px;display:flex;align-items:flex-start;gap:6px;}
+.mi{font-size:16px;flex-shrink:0;}.mt{font-size:10px;font-weight:700;color:#222;}.md{font-size:9.5px;color:#666;margin-top:2px;line-height:1.4;}
+.ri{display:flex;gap:8px;align-items:flex-start;margin-bottom:5px;}
+.rc{width:16px;height:16px;background:#2d9d60;border-radius:50%;color:#fff;font-size:9.5px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
+.rc.b{background:#1e6fa8;}
+.rt{font-size:10.5px;color:#333;line-height:1.5;}
+.sg{display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-top:3px;}
+.si{background:#fff8f0;border:1px solid #f0d0a0;border-radius:6px;padding:6px 8px;font-size:9.5px;color:#444;line-height:1.4;}
+.si strong{display:block;color:#c06010;font-size:9px;font-weight:700;margin-bottom:2px;}
+.fi{display:flex;flex-direction:column;gap:5px;}
+.fitem{display:flex;gap:7px;align-items:flex-start;font-size:10.5px;color:#333;}
+.fnum{background:#7b5ea7;color:#fff;border-radius:4px;width:16px;height:16px;font-size:9.5px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.kws{display:flex;flex-wrap:wrap;gap:5px;margin-top:2px;}
+.kw{background:#e8f4ef;border:1px solid #a8d8b8;border-radius:12px;padding:3px 9px;font-size:9.5px;color:#1a6b3a;font-weight:600;}
+.footer{background:#1a6b3a;color:rgba(255,255,255,.8);padding:8px 34px;display:flex;justify-content:space-between;align-items:center;font-size:9.5px;}
+</style>
+</head>
+<body>
+<div class="poster">
+  <div class="header">
+    <div class="logo">HIYA<small>AI + ☯</small></div>
+    <div class="htxt">
+      <div class="htitle">HIYA: Holistic Insights for Youth Awareness</div>
+      <div class="hsub">Advancing Health Wellness through AI &amp; Ayurveda — An AI-Powered Wellness Chatbot for K–12 Students</div>
+      <div class="hauth">Upadhriti Ghosh &nbsp;|&nbsp; Central Magnet School, Murfreesboro, Tennessee, USA</div>
+    </div>
+    <div class="hbadges">
+      <div class="badge">🤖 Anthropic Claude API</div>
+      <div class="badge">📱 MIT App Inventor</div>
+      <div class="badge">🌿 Ayurveda + AI</div>
+    </div>
+  </div>
+  <div class="accent"></div>
+  <div class="body">
+    <div class="col">
+      <div class="sec"><div class="stitle">Abstract</div><div class="abst">HIYA is an AI-powered wellness chatbot integrating 5,000-year-old Ayurvedic principles with modern nutrition science, mindfulness, music therapy, and aromatherapy. Built with MIT App Inventor and the Anthropic Claude API, HIYA classifies K–12 students into one of three Ayurvedic dosha types to deliver personalized, multi-modal wellness guidance within strict ethical safety protocols.</div></div>
+      <div class="sec bl"><div class="stitle bl">Problem &amp; Motivation</div>
+        <div class="ri"><div class="rc b">!</div><div class="rt"><strong>Attention &amp; focus difficulties</strong> reducing academic performance</div></div>
+        <div class="ri"><div class="rc b">!</div><div class="rt"><strong>Chronic stress &amp; anxiety</strong> negatively affecting mental health</div></div>
+        <div class="ri"><div class="rc b">!</div><div class="rt"><strong>Poor sleep &amp; nutrition</strong> impairing cognitive development</div></div>
+        <div class="ri"><div class="rc b">!</div><div class="rt"><strong>No youth-specific tools</strong> integrating non-Western wellness frameworks</div></div>
+      </div>
+      <div class="sec te"><div class="stitle te">The Three Doshas</div>
+        <p style="margin-bottom:6px;">A 5-question quiz classifies each student into one of three Ayurvedic bioenergetic types for personalized guidance:</p>
+        <div class="dg">
+          <div class="dc v"><div class="de">💨</div><div class="dn">Vata</div><div class="dd">Light energy, variable focus</div><div class="dt">↳ Warm nutrition + calming mindfulness</div></div>
+          <div class="dc p"><div class="de">🔥</div><div class="dn">Pitta</div><div class="dd">Intense drive, strong focus</div><div class="dt">↳ Cooling diet + stress reduction</div></div>
+          <div class="dc k"><div class="de">🌿</div><div class="dn">Kapha</div><div class="dd">Deep endurance, stability</div><div class="dt">↳ Energizing movement + light foods</div></div>
+        </div>
+      </div>
+      <div><div class="kws"><span class="kw">Ayurveda</span><span class="kw">Artificial Intelligence</span><span class="kw">K–12 Wellness</span><span class="kw">Chatbot</span><span class="kw">Dosha</span><span class="kw">Mindfulness</span><span class="kw">Personalized Learning</span><span class="kw">Health Literacy</span></div></div>
+    </div>
+    <div class="col">
+      <div class="sec pu"><div class="stitle pu">System Architecture — HIYA 1.0</div>
+        <div class="diag">
+          <div class="db g">① User Interface<br><small>MIT App Inventor — menus + natural language input</small></div>
+          <div class="da">↓</div>
+          <div class="db b">② Constitutional Assessment Quiz<br><small>5 questions: energy · sleep · stress · learning · diet</small></div>
+          <div class="da">↓</div>
+          <div class="db p">③ Dosha Profile Determined<br><small>Vata / Pitta / Kapha classification</small></div>
+          <div class="da">↓</div>
+          <div class="db o">④ AI Response Module<br><small>Anthropic Claude API — personalized guidance</small></div>
+          <div class="da">↓</div>
+          <div class="db g">⑤ Personalized Wellness Output<br><small>Nutrition · Mindfulness · Music · Aromatherapy</small></div>
+        </div>
+      </div>
+      <div class="sec or"><div class="stitle or">Wellness Modalities</div>
+        <div class="mgrid">
+          <div class="mc"><div class="mi">🥗</div><div><div class="mt">Nutrition</div><div class="md">Whole foods with balanced macronutrients adapted to dosha type</div></div></div>
+          <div class="mc"><div class="mi">🧘</div><div><div class="mt">Mindfulness</div><div class="md">Breathing exercises &amp; present-moment awareness for students</div></div></div>
+          <div class="mc"><div class="mi">🎵</div><div><div class="mt">Music Therapy</div><div class="md">Calming or energizing rhythms matched to need state</div></div></div>
+          <div class="mc"><div class="mi">🌸</div><div><div class="mt">Aromatherapy</div><div class="md">Lavender (calm) · Citrus (energy) · Peppermint (focus) · Frankincense (stress)</div></div></div>
+        </div>
+      </div>
+      <div class="sec or"><div class="stitle or">Safety &amp; Ethical Protocols</div>
+        <div class="sg">
+          <div class="si"><strong>🚫 No Medical Advice</strong>No diagnoses or prescriptions — lifestyle guidance only</div>
+          <div class="si"><strong>👶 Age-Appropriate Language</strong>Enforced via Claude API system-level prompting</div>
+          <div class="si"><strong>✅ Parental Consent</strong>Required at onboarding before any interaction</div>
+          <div class="si"><strong>🔒 API-Level Constraints</strong>Consistent adherence regardless of query phrasing</div>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="sec"><div class="stitle">Results &amp; Evaluation</div>
+        <p style="font-weight:700;font-size:10.5px;color:#1a6b3a;margin-bottom:5px;">Technical Performance</p>
+        <div class="ri"><div class="rc">✓</div><div class="rt">Reliable NLP query processing across representative student wellness queries</div></div>
+        <div class="ri"><div class="rc">✓</div><div class="rt">100% adherence to safety protocols — zero medical claims or out-of-scope responses</div></div>
+        <div class="ri"><div class="rc">✓</div><div class="rt">All 4 wellness modalities confirmed for all 3 dosha types</div></div>
+        <p style="font-weight:700;font-size:10.5px;color:#1a6b3a;margin:6px 0 5px;">Educational Impact</p>
+        <div class="ri"><div class="rc">✓</div><div class="rt">Increased <strong>interoceptive awareness</strong> of energy, mood &amp; physical states</div></div>
+        <div class="ri"><div class="rc">✓</div><div class="rt">Non-prescriptive framing fosters <strong>autonomous health decision-making</strong></div></div>
+        <div class="ri"><div class="rc">✓</div><div class="rt">Students report greater <strong>calmness, focus, and confidence</strong> post-interaction</div></div>
+        <div class="ri"><div class="rc">✓</div><div class="rt">Ayurveda builds <strong>mind-body literacy</strong> linking diet, sleep &amp; cognition</div></div>
+      </div>
+      <div class="sec pk"><div class="stitle pk">Limitations</div>
+        <p>As a proof-of-concept, HIYA 1.0 has not undergone formal longitudinal evaluation or independent expert review. The constitutional quiz relies on self-reported data, which may not fully capture individual dosha complexity. Future iterations will address these gaps through structured user studies and certified Ayurvedic practitioner validation.</p>
+      </div>
+      <div class="sec pu"><div class="stitle pu">Future Work</div>
+        <div class="fi">
+          <div class="fitem"><div class="fnum">1</div><span>Expert validation by certified Ayurvedic practitioners</span></div>
+          <div class="fitem"><div class="fnum">2</div><span>Wearable wellness data integration (sleep &amp; activity monitoring)</span></div>
+          <div class="fitem"><div class="fnum">3</div><span>Allergy &amp; sensitivity screening for safe nutrition recommendations</span></div>
+          <div class="fitem"><div class="fnum">4</div><span>Interactive progress visualization dashboards</span></div>
+          <div class="fitem"><div class="fnum">5</div><span>STEM literacy content explaining the science behind Ayurveda</span></div>
+        </div>
+      </div>
+      <div class="sec"><div class="stitle">Conclusion</div>
+        <p>HIYA demonstrates significant potential as a model for integrating traditional holistic health frameworks with contemporary AI in K–12 education. By personalizing wellness guidance through Ayurvedic constitutional typing, HIYA addresses a meaningful gap in youth health literacy — showing how AI can preserve and transmit cultural wellness knowledge while enabling personalized, scalable, preventive health education for the next generation.</p>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <span>Upadhriti Ghosh &nbsp;|&nbsp; Central Magnet School, Murfreesboro, TN 37129, USA</span>
+    <span>Built with MIT App Inventor &amp; Anthropic Claude API</span>
+    <span>Refs: Lad (1984) · Svoboda (2005) · MIT App Inventor · Anthropic (2025)</span>
+  </div>
+</div>
+</body>
+</html>
